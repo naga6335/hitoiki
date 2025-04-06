@@ -1,13 +1,14 @@
-version: '3'
+version: "3.9"
 
 services:
+
   backend:
     build:
       context: ../
       dockerfile: devtools/go/Dockerfile
-      volumes:
-        type: bind
-        source: "./backend"
-        target: "/backend"
-      environment:
-        TZ=Asia/Tokyo
+    tty: true
+    stdin_open: true
+    volumes:
+      - type: bind
+        source: ../backend
+        target: /usr/src/app/backend
